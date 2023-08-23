@@ -143,8 +143,8 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='relative'>
-					<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 max-w-md overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
+				<div className='relative max-w-md mx-auto'>
+					<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
 						{timeSteps.length > 0 &&
 							timeSteps.map((num, idx) => {
 								return (
@@ -155,12 +155,14 @@ function App() {
 							})}
 					</div>
 
-					<button
-						className='absolute top-2 right-2 text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded text-sm w-fit px-2 py-2 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
-						onClick={() => navigator.clipboard.writeText(timeSteps.join("\n"))}
-					>
-						Copy
-					</button>
+					{timeSteps && timeSteps.length > 0 && (
+						<button
+							className='absolute top-2 right-2 text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded text-sm w-fit px-2 py-2 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
+							onClick={() => navigator.clipboard.writeText([...timeSteps].join("\n"))}
+						>
+							Copy
+						</button>
+					)}
 				</div>
 			</div>
 		</>
