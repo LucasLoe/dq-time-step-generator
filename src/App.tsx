@@ -31,7 +31,6 @@ function App() {
 		<>
 			<div className='min-w-screen min-h-screen bg-slate-800 text-slate-50 py-8 px-4'>
 				<h1 className='text-center text-2xl tracking-wider'>DQ TIME STEP GENERATOR</h1>
-
 				<div className='max-w-md mx-auto mt-8'>
 					<div className='relative z-0 w-full mb-6 group'>
 						<input
@@ -144,7 +143,7 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 max-w-md overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
+				<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 max-w-md overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
 					{timeSteps.length > 0 &&
 						timeSteps.map((num, idx) => {
 							return (
@@ -154,6 +153,13 @@ function App() {
 							);
 						})}
 				</div>
+				<button
+					className='z-50 absolute top-0 right-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+					onClick={() => navigator.clipboard.writeText(timeSteps.join("\n"))}
+				>
+					Copy to Clipboard
+				</button>
+				)
 			</div>
 		</>
 	);
