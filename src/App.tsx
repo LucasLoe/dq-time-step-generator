@@ -143,19 +143,20 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 max-w-md overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
-					{timeSteps.length > 0 &&
-						timeSteps.map((num, idx) => {
-							return (
-								<p className='my-1' key={idx}>
-									{num}
-								</p>
-							);
-						})}
-				</div>
-				<div className='absolute'>
+				<div className='relative'>
+					<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 max-w-md overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
+						{timeSteps.length > 0 &&
+							timeSteps.map((num, idx) => {
+								return (
+									<p className='my-1' key={idx}>
+										{num}
+									</p>
+								);
+							})}
+					</div>
+
 					<button
-						className='z-50 top-2 right-2 text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-md w-sm px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
+						className='absolute top-2 right-2 text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded text-sm w-fit px-2 py-2 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
 						onClick={() => navigator.clipboard.writeText(timeSteps.join("\n"))}
 					>
 						Copy
