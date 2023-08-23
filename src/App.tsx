@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { InputProps } from "./types";
 import generate_time_steps from "./dq_time_step_generator";
 
