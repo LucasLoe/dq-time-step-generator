@@ -129,7 +129,7 @@ function App() {
 					</div>
 					<div className='flex flex-row justify-evenly items-center'>
 						<button
-							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+							className='text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 							onClick={(e) => handleSubmit(e)}
 						>
 							Submit
@@ -143,26 +143,40 @@ function App() {
 						</p>
 					</div>
 				</div>
-				<div className='relative max-w-md mx-auto'>
-					<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
-						{timeSteps.length > 0 &&
-							timeSteps.map((num, idx) => {
-								return (
-									<p className='my-1' key={idx}>
-										{num}
-									</p>
-								);
-							})}
-					</div>
-
-					{timeSteps && timeSteps.length > 0 && (
-						<button
-							className='absolute top-2 right-2 text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded text-sm w-fit px-2 py-2 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800'
-							onClick={() => navigator.clipboard.writeText([...timeSteps].join("\n"))}
-						>
-							Copy
-						</button>
+				<div className='max-w-md mx-auto'>
+					{timeSteps && Math.max(...timeSteps) > 1000 && (
+						<div className='w-full my-8 mx-auto outline outline-4 outline-red-800 bg-red-300 p-4 rounded shadow-xl'>
+							<p className='font-bold text-red-800 w-full text-center'>Attention!</p>
+							<br />
+							<p className='text-red-800 text-justify'>{`Your current settings result in a DQ evolution time that exceeds reasonable values. You should adjust your parameters such that the maximum does not exceed roughly 800ms to avoid burning the probe head and your sample.`}</p>
+						</div>
 					)}
+					<div className='relative'>
+						<div className='relative text-slate-800 px-2 py-4 mx-auto mt-8 text-center font-mono max-h-64 overflow-auto whitespace-pre-wrap bg-slate-100 shadow-inner rounded'>
+							{timeSteps.length > 0 &&
+								timeSteps.map((num, idx) => {
+									return (
+										<p className='my-1' key={idx}>
+											{num}
+										</p>
+									);
+								})}
+						</div>
+
+						{timeSteps && timeSteps.length > 0 && (
+							<button
+								className='absolute outline outline-2 outline-slate-700 top-4 right-4 text-white bg-slate-200 shadow-xl  hover:bg-slate-50 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded text-sm w-fit px-2 py-2 text-center '
+								onClick={() => navigator.clipboard.writeText([...timeSteps].join("\n"))}
+							>
+								{
+									<svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'>
+										<path d='M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z' />
+									</svg>
+									/* Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. */
+								}
+							</button>
+						)}
+					</div>
 				</div>
 			</div>
 		</>
