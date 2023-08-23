@@ -87,7 +87,7 @@ function App() {
 							htmlFor='l11'
 							className='peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6'
 						>
-							l11 (number of points in second dimension ; l11 = td2 / 2)
+							l11 (num of points in 2nd dimension; l11 = td2/2)
 						</label>
 					</div>
 					<div className='relative z-0 w-full mb-6 group'>
@@ -130,7 +130,7 @@ function App() {
 					</div>
 					<div className='flex flex-row justify-evenly items-center'>
 						<button
-							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+							className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md w-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
 							onClick={(e) => handleSubmit(e)}
 						>
 							Submit
@@ -138,7 +138,7 @@ function App() {
 						<p>
 							Max. time is:{" "}
 							<span className='px-2 font-mono '>
-								{timeSteps && timeSteps.length > 0 ? Math.max(...timeSteps) : 0}
+								{timeSteps && timeSteps.length > 0 ? Math.round(Math.max(...timeSteps)) : 0}
 							</span>
 							<span> ms</span>
 						</p>
