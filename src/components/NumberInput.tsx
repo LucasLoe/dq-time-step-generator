@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { FormEvent } from "react";
 
 type NumberInputProps = {
 	id: string;

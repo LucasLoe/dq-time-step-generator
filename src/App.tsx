@@ -45,10 +45,7 @@ function App() {
 					</Grouped>
 					<Grouped>
 						<NumberInput id='l11' value={inputSettings.l11} onChange={(e) => handleFormChange(e)} />
-						<LabelText
-							htmlForText='l11'
-							labelText='l11 (num of points in 2nd dimension; l11 = td2/2)'
-						/>
+						<LabelText htmlForText='l11' labelText='l11 (num of points in 2nd dim.; l11 = td2/2)' />
 					</Grouped>
 					<Grouped>
 						<NumberInput id='d4' value={inputSettings.d4} onChange={(e) => handleFormChange(e)} />
