@@ -21,36 +21,9 @@ type ChartProps = {
 	settings: Settings;
 };
 
-/**
-function createInterpolatedX(limit: number, spacing: number) {
-	const result = [];
-	let i = 0;
-
-	if (limit > 0) {
-		while (i <= limit) {
-			result.push(i);
-			i += spacing;
-		}
-	} else {
-		return [0];
-	}
-	return result;
-}
- */
-
 const Chart = (props: ChartProps) => {
 	const { settings, timeSteps } = props;
-	/**
-     const timeStepLimit = Math.max(...timeSteps);
-     const interpolatedSpacing = parseFloat((timeStepLimit / 100).toFixed(2));
-     const interpolX = createInterpolatedX(timeStepLimit, interpolatedSpacing);
-	const interpolatedData = interpolX.map((t) => ({
-		tdq: t,
-		Iref: calculateIrefData(t, settings),
-		Idq: calculateIdqData(t, settings),
-		Indq: calculateIndqData(t, settings),
-	}));
- */
+
 	const experimentalData = timeSteps.map((t) => ({
 		expTdq: t,
 		expIref: calculateIrefData(t, settings),
@@ -67,38 +40,45 @@ const Chart = (props: ChartProps) => {
 				margin={{
 					top: 10,
 					right: 20,
-					left: 10,
-					bottom: 10,
+					left: 5,
+					bottom: 15,
 				}}
 			>
 				<CartesianGrid strokeDasharray='2 2' />
-				<YAxis />
+				<YAxis interval={0} type="number"/>
 				<Legend />
 
-				<XAxis dataKey='expTdq' tickFormatter={(tick) => tick.toFixed(1)} />
+				<XAxis
+					interval={0}
+					tickCount={2}
+					dataKey='expTdq'
+					tickFormatter={(tick) => tick.toFixed(1)}
+					label={"DQ evolution time"}
+					type="number"
+				/>
 				<Line
-					type='monotone'
+					type='linear'
 					dataKey='expIref'
 					name='I-ref'
 					stroke='#161E49'
 					dot={true}
-					strokeWidth={3}
+					strokeWidth={2}
 				/>
 				<Line
-					type='monotone'
+					type='natural'
 					dataKey='expIdq'
 					name='I-DQ'
 					stroke='#45B9BC'
 					dot={true}
-					strokeWidth={3}
+					strokeWidth={2}
 				/>
 				<Line
-					type='monotone'
+					type='natural'
 					dataKey='expIndq'
 					name='I-nDQ'
 					stroke='#F66A49'
 					dot={true}
-					strokeWidth={3}
+					strokeWidth={2}
 				/>
 			</LineChart>
 		</ResponsiveContainer>
