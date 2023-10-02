@@ -13,7 +13,7 @@ const TimeStepCalculatorForm = (props: TimeStepCalculatorFormProps) => {
 	const [inputSettings, setInputSettings] = useState<InputProps>({
 		l1: 0.0,
 		l3: 2,
-		l11: 25,
+		l11: 20,
 		d4: 0.1,
 		p1: 0.002,
 	});
