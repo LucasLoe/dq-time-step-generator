@@ -45,16 +45,15 @@ const Chart = (props: ChartProps) => {
 				}}
 			>
 				<CartesianGrid strokeDasharray='2 2' />
-				<YAxis interval={0} type="number"/>
+				<YAxis interval={0} type='number' />
 				<Legend />
 
 				<XAxis
 					interval={0}
-					tickCount={2}
+					tickCount={4}
 					dataKey='expTdq'
 					tickFormatter={(tick) => tick.toFixed(1)}
-					label={"DQ evolution time"}
-					type="number"
+					type='number'
 				/>
 				<Line
 					type='linear'

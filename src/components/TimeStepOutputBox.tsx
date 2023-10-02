@@ -40,6 +40,7 @@ const TimeStepOutputBox = (props: TimeStepOutputBoxProps) => {
 			{timeSteps.length > 0 ? (
 				<>
 					<NumberBox>
+						<p className="text-slate-800 font-mono text-left">Copy me!</p>
 						{timeSteps.map((num, idx) => {
 							return (
 								<p className='my-1' key={idx}>
